@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <title>Dattail</title>
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg" style="background-color: #F5DE22;">
+    <div class="container">
+      <!--<a class="navbar-brand" href="#">Navbar</a><!--logo-->
+      <a  href="#">
+        <img class="navbar-brand" src="../../images/logo.svg" width="40px" height="40px" href="#link">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#link">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        
+      </div>
+      <form class="d-flex">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        &ensp;<!--esto es un espacio-->
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+  <!--nav bar end-->
+
+  <!--inicio div-->
+  <div class="container mt-3">
+    <div class="card-header">
+      <h4 class="card-title">Título Principal</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Subencabezado</h6>
+    </div>
+  </div>
+  <!--inicio div-->
+
+  <!--inicio div-->
+  <div class="container md-5">
+
+    <div class="row">
+
+      <div class="col-md-8">
+        <!-- Contenido de la Primera Columna -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Nombre MAquinaria</h5>
+            <p class="card-text">categoria: </p>
+            <div id="carouselExample" class="carousel slide">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://s7d2.scene7.com/is/image/Caterpillar/CM20210727-4e0e6-fbc7e" class="d-block w-100"
+                    alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://media.istockphoto.com/id/887465766/es/foto/maquinaria-de-construcci%C3%B3n-de-la-carretera-en-la-construcci%C3%B3n-de-la-carretera.jpg?s=612x612&w=0&k=20&c=QaEHf4dsefYubrEASt5QDjQiwqeAAYQ0G5zDMoEcDV4="
+                    class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://www.promp.com.pe/wp-content/uploads/2021/12/10-marcas-maquinaria-pesada.jpg"
+                    class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <!-- Contenido de la Segunda Columna -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">nombre</h5>
+            <p class="card-text">Modelos</p>
+            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
+            <br>
+            <br>
+            <button type="button" class="btn btn-warning">Agendar</button>
+            <button type="button" class="btn btn-success">pagar</button>
+          </div>
+          
+                  <div class="card-body">
+                    <h5 class="card-title">Descripcion maquina</h5>
+                    <p class="card-text">DEscriupcion</p>
+                    
+                  </div>
+                
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--inicio div-->
+
+
+</body>
+
+</html>
