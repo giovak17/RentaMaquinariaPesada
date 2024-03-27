@@ -71,6 +71,11 @@ else if (mysqli_num_rows($numTelDuplicado) > 0) {
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+    <?php
+    // include_once('../view/usuario/carrito.php');
+    // include('templates/cabeceraIndex.php');
+    ?>
+
     <div class="container">
         <div class="title">Registro</div>
         <div class="content">
@@ -78,7 +83,7 @@ else if (mysqli_num_rows($numTelDuplicado) > 0) {
                 <div class="user-details">
                     <div class="input-box">
                         <span class="details">Nombre(s)</span>
-                        <input type="text" id="txtNombre" name="txtNombre" placeholder="Introduzca su nombre" required>
+                        <input type="text" id="txtNombre" name="txtNombre" placeholder="Introduzca su nombre" required pattern="[A-Za-z ]+">
                     </div>
 
                     <div class="input-box">
@@ -118,7 +123,7 @@ else if (mysqli_num_rows($numTelDuplicado) > 0) {
 
                     <div class="input-box">
                         <span class="details">Numero</span>
-                        <input type="number" id="numNumero" name="numNumero" placeholder="Introduzca su numero de casa" required>
+                        <input type="number" id="numNumero" min=0  name="numNumero" placeholder="Introduzca su numero de casa" required>
                     </div>
 
                     <div class="input-box">
@@ -150,13 +155,25 @@ else if (mysqli_num_rows($numTelDuplicado) > 0) {
     </div>
 
     <script>
-
+        //Para numero de telefonos.
         var phoneInput = document.getElementById('txtNumTel');
         var myForm = document.forms.myForm;
-
         phoneInput.addEventListener('input', function (e) {
           var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
           e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        //ADDED PARA NOMBRE, AP MAT Y PAT. Para evitar que utilicen numeros.
+        var nombreInput = document.getElementById('txtNombre');
+        var apPatInput = document.getElementById('txtApPat');
+        var apMatInput = document.getElementById('txtApMat');
+
+        var nombreCompleto = [nombreInput, apPatInput, apMatInput];
+
+        nombreCompleto.forEach(function(input) {
+            input.addEventListener('input', function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // Solo permite letras y espacios
+            });
         });
 
         myForm.addEventListener('submit', function(e) {

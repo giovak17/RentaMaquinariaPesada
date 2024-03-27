@@ -61,9 +61,12 @@
               </li>
             <?php endif; ?>
             <li class="nav-item">
+              <!-- ADDED -->
+              <?php if (!empty($_SESSION["id"])){ ?>
               <a class="nav-link" href="mostrarCarrito.php">
                 <img src="../../img/icons/cart.svg" width="30px" height="30px">(<?php echo (empty($_SESSION['carrito'])) ? 0 : count($_SESSION['carrito']) ?>)
               </a>
+              <?php }?>
             </li>
           </ul>
         </div>

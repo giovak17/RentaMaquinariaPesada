@@ -65,19 +65,19 @@ include('templates/cabecera.php');
                                 <h4>Receptor</h4>
                                 <div class="form-group">
                                     <label for="descripcion">Nombre:</label>
-                                    <input id="descripcion" name="txtNombre" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtNombre" class="form-control soloLetra" type="text" placeholder="Escribe una descripción" required pattern="[a-zA-Z\s]+">
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion">Apellido Paterno:</label>
-                                    <input id="descripcion" name="txtApPa" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtApPa" class="form-control soloLetra" type="text" placeholder="Escribe una descripción" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion">Apellido Mataterno:</label>
-                                    <input id="descripcion" name="txtApMa" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtApMa" class="form-control soloLetra" type="text" placeholder="Escribe una descripción" required>
                                 </div>
                                  <div class="form-group">
                                     <label for="descripcion">Numero Telefono:</label>
-                                    <input id="descripcion" name="txtTelefono" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtTelefono" class="form-control numTel" type="text" max = 10 placeholder="Escribe una descripción" required>
                                 </div>
                                  <h4>Direccion</h4>
                                 <div class="form-group">
@@ -90,11 +90,11 @@ include('templates/cabecera.php');
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion">Numero:</label>
-                                    <input id="descripcion" name="txtNum" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtNum" class="form-control " type="text" placeholder="Escribe una descripción" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="descripcion">Codigo Postal:</label>
-                                    <input id="descripcion" name="txtCP" class="form-control" type="text" placeholder="Escribe una descripción" required>
+                                    <input id="descripcion" name="txtCP" class="form-control soloNum soloCP" type="text" placeholder="Escribe una descripción" required>
                                 </div>
 
                                 <div class="form-group">
@@ -121,3 +121,58 @@ include('templates/cabecera.php');
 <?php
 include('templates/pie.php');
 ?>
+
+
+<script>
+    var soloLetrasInputs  = document.querySelectorAll('.soloLetra');
+    
+    soloLetrasInputs .forEach(function(input) {
+            input.addEventListener('input', function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // Solo permite letras y espacios
+            });
+        });
+
+        var phoneInputs = document.querySelectorAll('.numTel');
+
+        phoneInputs.forEach(function(input) {
+            input.addEventListener('input', function (e) {
+                var formattedNumber = e.target.value.replace(/\D/g, '').slice(0, 10);
+                var formattedOutput = formattedNumber.replace(/(\d{0,3})(\d{0,3})(\d{0,4})/, function(match, p1, p2, p3) {
+                    if (!p2) {
+                        return p1;
+                    }
+                    var areaCode = '(' + p1 + ')';
+                    var prefix = p2;
+                    var suffix = p3 ? '-' + p3 : '';
+                    return areaCode + ' ' + prefix + suffix;
+                });
+                e.target.value = formattedOutput;
+            });
+        });
+
+    // Obtener todos los elementos con la clase 'soloNum'
+    var numberInputs = document.querySelectorAll('.soloNum');
+
+    // Iterar sobre cada elemento
+    numberInputs.forEach(function(input) {
+        input.addEventListener('input', function (e) {
+            var formattedNumber = e.target.value.replace(/\D/g, '');
+
+            // Asignar el valor formateado al campo de entrada
+            e.target.value = formattedNumber;
+        });
+    });
+
+    // Obtener todos los elementos con la clase 'soloCP'
+    var cpInputs = document.querySelectorAll('.soloCP');
+
+    cpInputs.forEach(function(input) {
+        input.addEventListener('input', function (e) {
+            var formattedNumber = e.target.value.replace(/\D/g, '').slice(0, 5);
+
+            // Asignar el valor formateado al campo de entrada
+            e.target.value = formattedNumber;
+        });
+    });
+
+</script>

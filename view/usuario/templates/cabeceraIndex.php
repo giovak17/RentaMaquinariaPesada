@@ -141,26 +141,33 @@ if(isset($_POST['btnSubmit'])){
                 <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
               </li>
 
-              <li class="nav-item">
-                <a style = "margin-left: 300px;" class="nav-link active" aria-current="page" href="#">Filtros:</a>
-              </li>
+              <!--AGREGADO, FORM PARA REFERENCIAS DE API YT-->
+              <form class="form-inline my-2 my-lg-0" method="post" action="youtubeAPI.php">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Referencias
+                  </a><div class="dropdown-menu">
+                      <button class="dropdown-item" type="submit" name="referencia" value="canal1">Heavy Metal Learning</button>
+                      <button class="dropdown-item" type="submit" name="referencia" value="canal2">Mega Machines Channel</button>
+                      <button class="dropdown-item" type="submit" name="referencia" value="canal3">Instituto tractor torrechayoc cusco</button>
+                  </div>
+              </form>
+              <!--AGREGADO, FORM PARA REFERENCIAS DE API YT ^^^^^-->
 
             </ul>
           </div>
-          <form class="d-flex" action = "#" method = "post">
-
-      <select class = "form-select" name = "txtOpcion" id = "txtOpcion" style = "width: 100px;">
-        <option value = "marca">Marca</option>
-        <option value = "modelo">Modelo</option>
-        <option value = "anio">Año</option>
-        <option value = "categoria">Categoria</option>
-        <option value = "precio">Precio</option>
-        <option value = "menorPrecio">Menor Precio</option>
-        <option value = "mayorPrecio">Mayor Precio</option>
-        <option value = "menorCapacidad">Menor Capacidad</option>
-        <option value = "mayorCapacidad">Mayor Capacidad</option>
-      </select>
-
+          <form id="searchForm" class="d-flex" action = "index.php" method = "post">
+          <select class = "form-select" name = "txtOpcion" id = "txtOpcion" style = "width: 100px;">
+            <option value = "marca">Marca</option>
+            <option value = "modelo">Modelo</option>
+            <option value = "anio">Año</option>
+            <option value = "categoria">Categoria</option>
+            <option value = "precio">Precio</option>
+            <option value = "menorPrecio">Menor Precio</option>
+            <option value = "mayorPrecio">Mayor Precio</option>
+            <option value = "menorCapacidad">Menor Capacidad</option>
+            <option value = "mayorCapacidad">Mayor Capacidad</option>
+          </select>
 
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search" name = "txtBuscar">
             &ensp;

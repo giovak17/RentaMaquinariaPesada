@@ -9,7 +9,7 @@ include('templates/cabecera.php');
 
 // Verificar si hay datos en la sesión y utilizarlos
 $fechaInicio = isset($_SESSION['fechaInicio']) ? $_SESSION['fechaInicio'] : '';
-$fechaFinal = isset($_SESSION['fechaFinal']) ? $_SESSION['fechaFinal'] : '';
+$fechaFinal  = isset($_SESSION['fechaFinal'])  ? $_SESSION['fechaFinal'] : '';
 ?>
  
 <br>
@@ -61,7 +61,8 @@ $fechaFinal = isset($_SESSION['fechaFinal']) ? $_SESSION['fechaFinal'] : '';
                                     ?>
                                     
                                     <label for="txtFechaInicio">Fecha de Inicio:</label>
-                                    <input id="txtFechaInicio" name="txtFechaInicio" class="form-control" type="date" min="<?php echo $fechaMin; ?>" required value="<?php echo $fechaInicio; ?>">
+                                    <input id="txtFechaInicio" name="txtFechaInicio" class="form-control" type="date" 
+                                    min="<?php echo $fechaMin; ?>" required value="<?php echo $fechaInicio; ?>">
                                 </div>
                             
                                 <div class="form-group">
@@ -72,7 +73,7 @@ $fechaFinal = isset($_SESSION['fechaFinal']) ? $_SESSION['fechaFinal'] : '';
                                         $fechaMAX= $fechaAct->format('Y-m-d');
                                     ?>
                                     <label for="txtFechaFinal">Fecha Final:</label>
-                                    <input id="txtFechaFinal" name="txtFechaFinal" class="form-control" type="date" max="<?php echo $fechaMAX; ?>" required value="<?php echo $fechaFinal; ?>">
+                                    <input id="txtFechaFinal" name="txtFechaFinal" class="form-control" type="date" min="<?php echo $fechaMin; ?>"max="<?php echo $fechaMAX; ?>" required value="<?php echo $fechaFinal; ?>">
                                 </div>
                                 <br>
                                 <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAccion" value="insertar">Continuar >></button>

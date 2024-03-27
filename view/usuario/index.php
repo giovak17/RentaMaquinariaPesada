@@ -5,7 +5,6 @@ include('../../data/config.php');
 include('carrito.php');
 include('templates/cabeceraIndex.php');
 ?>
-
         <br>
         <?php if($mensaje !=""){?>
         <div class="alert alert-success">
@@ -16,10 +15,9 @@ include('templates/cabeceraIndex.php');
             
         <div class="container-grid top" style = "margin-top: 0px;">
             <?php foreach($rows as $producto){  ?>
-                <div class="container-grid" >
-                   
-                <div class="card" style = "width: 20rem;" >
-                    <a href="idxDetail.php?id=<?php echo $producto['codigo'];?>">
+                <div class="container-grid-trial" >  
+                <div class="card hoverChange" style = "width: 20rem; height: auto;" >
+                    <a class = "removeLink"  href="idxDetail.php?id=<?php echo $producto['codigo'];?>">
                         <img 
                         title="<?php echo $producto['modelo'];?>" 
                         alt="<?php echo $producto['modelo'];?>" 
@@ -30,8 +28,8 @@ include('templates/cabeceraIndex.php');
                         data-content="<?php echo $producto['descripcion'];?>"
                         height="317px"
                         >
-                    </a>
-                    <div class="card-body" >
+                    
+                    <div class="card-body"  >
                         
                         <span><?php echo strtoupper($producto['marca']);?></span>
                         <h5 class="card-title"><?php echo strtoupper($producto['modelo']); echo " - ".$producto['anio'];?></h5>
@@ -48,7 +46,10 @@ include('templates/cabeceraIndex.php');
                         </form>
                         
                     </div>
+                    </a>
                 </div>
+
+                
             </div>   
            <?php } ?>
       </div>

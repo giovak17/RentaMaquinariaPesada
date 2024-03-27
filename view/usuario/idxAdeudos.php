@@ -20,7 +20,7 @@ include('templates/cabecera.php');
                     <td>Cliente</td>
                     <td>Folio Reserva</td>
                     <td>Fecha</td>
-                    <td>MontoTotal</td>
+                    <td>Monto Total</td>
                     <td>Saldo restante</td>
                     <td></td>
                    
@@ -37,7 +37,7 @@ include('templates/cabecera.php');
                         echo "<td>" . $rs['NumReserva'] . "</td>";
                         echo "<td>" . $rs['Fecha'] . "</td>";
                         echo "<td>" . $rs['MontoTotal'] . "</td>";
-                        echo "<td>" . $rs['MontoTotal'] . "</td>";
+                        echo "<td>" . $rs['saldoRestante'] . "</td>";
                         echo '<td><a href="idxAbonos.php?folio='.$rs['NumReserva'].'"><img src="../../img/icons/cash.svg" style="padding-bottom:1px" ></a></td>';
                         echo "</tr>";
                     }

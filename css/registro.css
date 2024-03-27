@@ -185,3 +185,13 @@ form .text h3 a{
 form .text h3 a:hover{
   text-decoration: underline;
 }
+
+/* PARA EL BOTON BACK */
+.back {
+  display: grid; 
+  grid-template-columns: 0.7fr 1.2fr 1.1fr; 
+  grid-template-rows: 0.3fr 0.5fr 2.2fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "Logo Menu-del-top Menu-del-top"
+}

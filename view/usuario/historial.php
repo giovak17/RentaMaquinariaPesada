@@ -21,29 +21,41 @@ include('templates/cabecera.php');
       $obj = new historial();
       $dataset = $obj->getAllHistorial($_SESSION['id']);
       $rs = mysqli_fetch_assoc($dataset);
-
-
     ?>
-      <h3>Cliente: <?php echo $rs['Cliente']?></h3>   
+      <h3>
+        <?php 
+            if ($rs == null) {
+                echo "No hay historial de reservas registradas.";
+            }else { 
+            echo "Cliente: " . $rs['Cliente']; 
+            };
+            ?></h3>   
       <br>
     <div class="container">
      
 		
 
-            <table class="table">
-                <tr class="table-dark">
-                    <td>Folio</td>
-                    <td>Fecha</td>
-					<td> Hora </td>
-                    <td>Nombre</td>
-					<td>Descripcion</td>
-                    <td>Direccion</td>
-					<td>Estado</td>
-                    <td>Detalles</td>
-                   
-                </tr>
+            
 
                 <?php
+                //Added
+                if ($rs != null) {
+                    echo 
+                    '<table class="table">
+                        <tr class="table-dark">
+                            <td>Folio</td>
+                            <td>Fecha</td>
+                            <td> Hora </td>
+                            <td>Nombre</td>
+                            <td>Descripcion</td>
+                            <td>Direccion</td>
+                            <td>Estado</td>
+                            <td>Detalles</td>
+                        
+                        </tr>';
+                }
+
+
                 $obj = new historial();
                 //$nick ='annita56';
                 $dataset = $obj->getAllHistorial($_SESSION['id']);

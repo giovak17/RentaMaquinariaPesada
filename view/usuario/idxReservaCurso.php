@@ -16,20 +16,28 @@ include('templates/cabecera.php');
 		
 
             <table class="table">
-                <tr class="table-dark">
-                    <td>Fecha</td>
-					<td>Nombre</td>
-                    <td>Descripcion</td>
-					<td>Direccion</td>
-					<td>Estado</td>
-                   
-                </tr>
+                
+
+                
 
                 <?php
                 include('../../data/hist.php');
                 $obj = new historial();
                 $dataset = $obj->getAllHistorialC($_SESSION['id']);
                 if ($dataset != 'wrong') {
+                    if ($dataset != null) {
+                        echo
+                        '<tr class="table-dark">
+                            <td>Fecha</td>
+                            <td>Nombre</td>
+                            <td>Descripcion</td>
+                            <td>Direccion</td>
+                            <td>Estado</td>
+                           
+                        </tr>';
+                    }else{
+                        echo "<h3>No hay reservas registradas</h3>";
+                    }
                     while ($rs = mysqli_fetch_assoc($dataset)) {
                         echo "<tr>";
                         echo "<td>" . $rs['Fecha'] . "</td>";
