@@ -49,12 +49,12 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
     <main>
-        <h1><font face=”Cambria” size=6>Mantenimiento de la maquina</font></h1>
+        <h1 style = "text-align: center;"><font face=”Cambria” size=6>Mantenimiento de la Maquina</font></h1>
         <div class = "flex-container">
             <div class = "container" style = "margin:0;">
             <br>

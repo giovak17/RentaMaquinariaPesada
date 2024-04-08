@@ -116,7 +116,7 @@ echo "<script>alert('No se encontraron registros para ese almacen.');</script>";
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
                                
                             </ul>
                     </ul>

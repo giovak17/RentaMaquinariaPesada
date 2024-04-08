@@ -15,7 +15,7 @@ body {
 
 .letraHeader {
     font-style: italic;
-    color: rgba(255, 255, 117, 0.986); /*letras de admin*/
+    color: black    ; /*letras de admin*/
     text-align: center;
 }
 
@@ -24,52 +24,85 @@ h1{
 
 }
 
-header {
-    width: 200px;
-    background: rgb(4, 1, 31); /*barra completa*/
+/*EDITADO*/
+/* Barra de navegación */
+nav {
+    width: 250px;
+    background-color: #ffcd11; /* Color de fondo */
 }
 
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    line-height: 16px;
 }
 
 nav ul li {
-    border-bottom: 1px solid #0a0000;
+    position: relative;
+    border-bottom: 1px solid #0F0F0F; /* Línea separadora */
 }
 
-nav ul a {
-    box-sizing: border-box;
-    color: rgba(255, 255, 226, 0.801);
-    background: #0a0422d0;
+nav ul li a {
     display: block;
-    width: 100%;
-    padding: 6px 10px;
+    padding: 15px 20px;
+    color: #0F0F0F; /* Color del texto */
     text-decoration: none;
+    transition: background-color 0.3s;
+    font-family: 'Cambria', sans-serif; /* Tipo de fuente */
 }
 
+nav ul li a:hover {
+    background-color: #FFD842; /* Color de fondo al pasar el ratón */
+}
+
+/* Submenú */
 nav ul ul {
-    height: 0;
-    overflow: hidden;
-    transition: height var(--estado-buda);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 250px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, top 0.3s;
 }
 
 nav ul ul li {
-    counter-increment: items;
+    background-color: #fbc70e; /* Color del submenú */
 }
 
-nav ul li:hover ul {
-    height: calc(var(--cantidad-items) * var(--cada-item));
-    background: rgba(252, 255, 95, 0.39);/*colormenu interno*/
-    /*background: rgb(2, 0, 36);*/
-    /*background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(67, 103, 17, 1) 35%, rgba(0, 212, 255, 1) 100%);*/
+nav ul ul li a {
+    padding: 12px 20px;
+}
+
+nav ul li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+}
+
+/* Estilos adicionales */
+nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+nav ul ul li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+}
+
+/* Ajustes de texto */
+nav ul a {
+    font-size: 16px;
+    font-family: 'Cambria', sans-serif; /* Tipo de fuente */
 }
 
 nav ul ul a {
-    background: transparent;
-}
+    font-size: 14px;
+    font-family: 'Cambria', sans-serif; /* Tipo de fuente */
+    }
+    /* Fin de nav */
 
 
 .header{
@@ -95,28 +128,8 @@ nav ul ul a {
     transform: scale(1.2);
 }
 
-.header .nav-links{
-    list-style: none;
-}
 
-.header .nav-links li{
-    display: inline-block;
-    padding: 0 20px;    
-}
 
-.header .nav-links li:hover{
-    transform: scale(1.1);
-}
-
-.header .nav-links a{
-    font-size: 700;
-    color: rgb(229, 231, 75);
-    text-decoration: none;    
-}
-
-.header .nav-links li a:hover{
-    color: #c6c5faa4;
-}
 <!--boton-->
 .header .btn button{
     font-weight: 700;

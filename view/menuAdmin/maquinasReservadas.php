@@ -47,7 +47,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -88,7 +88,9 @@
 
             $result = $conexionDB->execquery($query);
 
-            // Mostrar las máquinas reservadas
+            /* Si se tiene un row entonces muestra la tabla */
+            if (mysqli_num_rows($result) > 0){
+                // Mostrar las máquinas reservadas
             echo "<h2>Maquinas del Cliente $codigoClienteSeleccionado</h2>";
             echo "<div class='flex-container'>";
             echo "<div class='container' style='margin:0;'>";
@@ -124,6 +126,14 @@
             echo "</table>";
             echo "</div>";
 
+            /* Else para ver si tiene rows o no */
+            }else{
+                echo "<br><br><br><h2> Este usuario aun no tiene registrada ninguna reserva.</h2>";
+            }
+
+
+
+            
             // Botón para volver a la selección del cliente
             echo "<form method='post' action='maquinasReservadas.php'>";
             echo "<input type='submit'  value='Volver a la Selección del Cliente'>";
@@ -133,6 +143,9 @@
             echo "</div>";
             echo "<br>";
         } else {
+
+
+
             // Si no se ha enviado el formulario, mostrar el formulario de selección
             $queryClientes = "SELECT codigo, CONCAT(nombre, ' ', apPat, ' ', COALESCE(apMat, '')) AS nombreCompleto FROM clientes";
             $resultClientes = $conexionDB->execquery($queryClientes);
@@ -143,8 +156,8 @@
             while ($row = mysqli_fetch_assoc($resultClientes)) {
                 $clientes[] = $row;
             }
-
-            echo "<h1><font face=”Cambria” size=6>Seleccione un cliente:</font></h1>";
+            echo "<h1 style = 'text-align: center;'><font face=”Cambria” size=6>Maquinas Reservadas</font></h1>";
+            echo "<h3 ><font face=”Cambria” size=5>Seleccione un cliente:</font></h3>";
             echo "<form method='post' action='maquinasReservadas.php'>";
             echo "<select name='codigoCliente' class='form-select'>";
             foreach ($clientes as $cliente) {

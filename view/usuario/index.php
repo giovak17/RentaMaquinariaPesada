@@ -34,7 +34,7 @@ include('templates/cabeceraIndex.php');
                         <span><?php echo strtoupper($producto['marca']);?></span>
                         <h5 class="card-title"><?php echo strtoupper($producto['modelo']); echo " - ".$producto['anio'];?></h5>
                         <p class = "card-title"><?php echo ucwords($producto['categoria']);?></p>
-                        <p class = "card-title">$<?php echo ($producto['precioDia']." por día");?></p>
+                        <p class = "card-title">$<?php echo ($producto['precioDia']." USD por día");?></p>
                         <!-- <p class="card-text">Descripcion</p> -->
 
                         <form action="" method="post">

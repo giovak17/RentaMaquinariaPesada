@@ -15,7 +15,7 @@ include('templates/cabecera.php');
 
 	<div class="container-fluid"> 
       <br>
-    <h1>Historial de las reservas entregadas</h1>   
+
     <?php
 			include('../../data/hist.php');
       $obj = new historial();
@@ -25,18 +25,14 @@ include('templates/cabecera.php');
       <h3>
         <?php 
             if ($rs == null) {
-                echo "No hay historial de reservas registradas.";
+                echo "<h1>No hay historial de reservas registradas. </h1>";
             }else { 
+                echo "    <h1>Historial de las reservas entregadas</h1>   ";
             echo "Cliente: " . $rs['Cliente']; 
             };
             ?></h3>   
       <br>
     <div class="container">
-     
-		
-
-            
-
                 <?php
                 //Added
                 if ($rs != null) {

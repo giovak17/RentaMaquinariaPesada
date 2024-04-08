@@ -47,7 +47,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -83,8 +83,10 @@
             WHERE al.codigo = '$codigoAlmacenSeleccionado';";
 
             $result = $conexionDB->execquery($query);
-
-            // Mostrar las máquinas en el almacén
+            
+            // Si tira rows entonces se despliega la informacion, si no, no se muestra nada
+            if (mysqli_num_rows($result) > 0){
+             // Mostrar las máquinas en el almacén
             echo "<h2>Máquinas en el Almacén $codigoAlmacenSeleccionado</h2>";
             echo "<div class='flex-container'>";
             echo "<div class='container' style='margin:0;'>";
@@ -101,7 +103,7 @@
             echo "<td>Categoría del modelo</td>";
             echo "<td>Año</td>";
             echo "</tr>";
-
+            
             while ($maquina = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>{$maquina['Nombre de la ciudad']}</td>";
@@ -114,13 +116,63 @@
                 echo "<td>{$maquina['Año']}</td>";
                 echo "</tr>";
             }
-
             echo "</table>";
             echo "</div>";
-
+            //ELSE, SI NO HAY ROWS
+            }else{
+            echo "<h2>Máquinas en el Almacén $codigoAlmacenSeleccionado</h2>";
+            echo "<div class='flex-container'>";
+            echo "<div class='container' style='margin:0;'>";
+            echo "<br><br>";
+            echo "<div class='row'>";
+            echo "<table class='table'>";
+            echo "<tr class='table-dark'>";
+                echo "<td>Nombre de la ciudad</td>";
+                echo "<td>Nombre del almacén</td>";
+                echo "<td>Dirección del almacén</td>";
+                echo "<td>Número de serie de la máquina</td>";
+                echo "<td>Nombre de la marca</td>";
+                echo "<td>Nombre del modelo</td>";
+                echo "<td>Categoría del modelo</td>";
+                echo "<td>Año</td>";
+            echo "</tr>";
+ 
+            echo "<tr>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+            echo "</tr>";
+            echo "</table>";
+            echo "</div>";
+            }//END ELSE
+            
             // Botón para volver a la selección del almacén
+            // echo "<form method='post' action='maquinasAlmacenadas.php'>";
+            // echo "<button type='submit'>Volver a la sección del almacén</button>";
+            // echo "</form>";
+            $queryAlmacenes = "SELECT codigo, nombre FROM almacenes";
+            $resultAlmacenes = $conexionDB->execquery($queryAlmacenes);
+
+            $almacenes = array();
+
+            // Obtener los datos de los almacenes
+            while ($row = mysqli_fetch_assoc($resultAlmacenes)) {
+                $almacenes[] = $row;
+            }
+
+            echo "<br><br><h3><font face=”Cambria” size=6>Seleccionar otro almacen:</font></h3>";
             echo "<form method='post' action='maquinasAlmacenadas.php'>";
-            echo "<button type='submit'>Volver a la sección del almacén</button>";
+            echo "<select name='codigoAlmacen' class='form-select'>";
+            foreach ($almacenes as $almacen) {
+                echo "<option value='{$almacen['codigo']}'>{$almacen['nombre']}</option>";
+            }
+            echo "</select>";
+            echo "<input type='submit'value='Máquinas en el Almacén'>";
             echo "</form>";
 
             echo "</div>";

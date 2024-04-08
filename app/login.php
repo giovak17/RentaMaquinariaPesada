@@ -74,10 +74,9 @@ or u.correo = '$usuariocorreo';");
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-    <div class = "backButton">
-      <a class= href= "../view/usuario/index.php" > Back </a>      
-    </div>
-    
+  <!-- Gon fix later    
+  <a class= href= "../view/usuario/index.php" > Backss </a>  
+  -->
     <div class="container">
         <div class="title">Iniciar sesión</div>
         <div class="content">

@@ -47,7 +47,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -96,41 +96,51 @@
 
                 $result = $conexionDB->execquery($query);
 
-                // Mostrar las reservas
-                echo "<h2>Reservas del Representante $repRtasSeleccionado en $mesSeleccionado/$anoSeleccionado</h2>";
-                echo "<div class='flex-container'>";
-                echo "<div class='container' style='margin:0;'>";
-                echo "<br><br>";
-                echo "<div class='row'>";
-                echo "<table class='table'>";
-                echo "<tr class='table-dark'>";
-                echo "<td>Representante de Ventas</td>";
-                echo "<td>Número de Reserva</td>";
-                echo "<td>Fecha</td>";
+                /* Validacion, si no tira ningun row la consulta*/
+                if (mysqli_num_rows($result) > 0){
+                    // Mostrar las reservas
+                    echo "<h2>Reservas del Representante $repRtasSeleccionado en $mesSeleccionado/$anoSeleccionado</h2>";
+                    echo "<div class='flex-container'>";
+                    echo "<div class='container' style='margin:0;'>";
+                    echo "<br><br>";
+                    echo "<div class='row'>";
+                    echo "<table class='table'>";
+                    echo "<tr class='table-dark'>";
+                    echo "<td>Representante de Ventas</td>";
+                    echo "<td>Número de Reserva</td>";
+                    echo "<td>Fecha</td>";
 
-                echo "<td>Cliente</td>";
-                echo "<td>Monto Total</td>";
-                echo "</tr>";
-
-                while ($reserva = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>{$reserva['RepRentas']}</td>";
-                    echo "<td>{$reserva['FolioReserva']}</td>";
-                    echo "<td>{$reserva['Fecha']}</td>";
-           
-                    echo "<td>{$reserva['Cliente']}</td>";
-                    echo "<td>{$reserva['MontoTotal']}</td>";
+                    echo "<td>Cliente</td>";
+                    echo "<td>Monto Total</td>";
                     echo "</tr>";
-                }
 
-                echo "</table>";
-                echo "</div>";
+                    while ($reserva = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>{$reserva['RepRentas']}</td>";
+                        echo "<td>{$reserva['FolioReserva']}</td>";
+                        echo "<td>{$reserva['Fecha']}</td>";
+
+                        echo "<td>{$reserva['Cliente']}</td>";
+                        echo "<td>{$reserva['MontoTotal']}</td>";
+                        echo "</tr>";
+                    }
+
+                    echo "</table>";
+                    echo "</div>";
+                    echo "<form method='post' action='reservasRep.php'>";
+                    echo "<input type='submit' value='Regresar a la Selección del Representante'>";
+                    echo "</form>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "<br>";
+                //end if del row consulta
+                }else{
+                    echo "<br><br><br><h3> No hay reservas realizadas por el representante $repRtasSeleccionado para la fecha $mesSeleccionado/$anoSeleccionado</h3>";
+                }//fin
                 echo "<form method='post' action='reservasRep.php'>";
-                echo "<input type='submit' value='Regresar a la Selección del Representante'>";
+                echo "<input type='submit'  value='Volver a la Selección del Cliente'>";
                 echo "</form>";
-                echo "</div>";
-                echo "</div>";
-                echo "<br>";
+                
             } else {
                 // Si no se ha enviado el formulario, mostrar el formulario de selección
                 echo "<h1><font face=”Cambria” size=6>Seleccione un representante de rentas por mes y año:</font></h1>";
@@ -168,6 +178,7 @@
                 echo "<input type='submit' value='Mostrar Reservas'>";
                 echo "</form>";
             }
+
         ?>
     </main>
 </body>

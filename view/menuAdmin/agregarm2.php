@@ -47,7 +47,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -58,7 +58,6 @@
                 
                 <form method = "post" action="../../app/addMaquinas.php" enctype="multipart/form-data">
                     <!--<label>Codigo</label> <input type="text" name="txtCodigo"> Por si se ocupa-->
-                    <br>
                     <table border = 2>
                     <label>NumSerie: </label> <input type="text" name="txtNumSerie" required >
                     <br>
@@ -193,7 +192,7 @@
 
 
             <td><a href = "../../app/deletemaquina.php?id=<?php echo $row["codigo"]; ?> "><img src = "../../images/trash3-fill.svg" style="padding-bottom:3px" class = "trashcan filter-red" ></a></td>
-            <td><a href = "updateMaquina.php?id=<?php echo $row["codigo"]; ?>"><img src = "../../images/pencil-fill.svg" style="padding-bottom:3px" class = "pencil filter-yellow"></a></td>
+            <!-- <td><a href = "updateMaquina.php?id=<?php echo $row["codigo"]; ?>"><img src = "../../images/pencil-fill.svg" style="padding-bottom:3px" class = "pencil filter-yellow"></a></td> -->
             <!--<td><img src = "img/<?php echo $row['imagen'];?>" width = 200 alt = ""></td> -->
 
           </tr>

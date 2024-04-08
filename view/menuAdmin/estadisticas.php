@@ -49,7 +49,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -91,7 +91,7 @@
 
               <?php foreach($rows as $row) : ?>
               <tr>
-                <td> Cantidad de Clientes </td>
+                <td class="LeftColumn"> Cantidad de Clientes </td>
                 <td><?php echo $row["Clientes"]; ?></td>
     
               </tr>
@@ -100,7 +100,7 @@
 
               <?php foreach($rows1 as $row) : ?>
               <tr>
-                <td> Cantidad de Reservas </td> 
+                <td class="LeftColumn"> Cantidad de Reservas </td> 
                 <td><?php echo $row["Reservas"]; ?></td>
     
               </tr>
@@ -109,7 +109,7 @@
 
               <?php foreach($rows2 as $row) : ?>
               <tr>
-                <td> Total de Maquinas reservadas </td>
+                <td class="LeftColumn"> Total de Maquinas reservadas </td>
                 <td><?php echo $row["CantMaquinasReservadas"]; ?></td>
     
               </tr>
@@ -121,6 +121,12 @@
               </div>
               </div>
               <br>
+
+              <Style>
+                .LeftColumn{
+                    text-align: left;
+                }
+              </Style>
     </main>
   </body>
 </html>

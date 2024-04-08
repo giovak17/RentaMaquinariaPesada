@@ -47,7 +47,7 @@
                         <li><a href="entrega.php"><font face=”Cambria” size=4>Entregas de maquinaria</font></a></li>
                     </ul>
                     <li><a href="verRepresentantes.php"><font face=”Cambria” size=4>Representantes</font></a>
-                    <li><a href="../../app/login.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
+                    <li><a href="../../app/logout.php"><font face=”Cambria” size=4>Cerrar Sesion</font></a>
             </ul>
         </nav>
     </header>
@@ -64,7 +64,6 @@
             // Obtener la lista de representantes
             $queryClientes = "SELECT codigo, CONCAT(nombre, ' ', apPat, ' ', COALESCE(apMat, '')) AS nombreCompleto FROM clientes";
             $resultClientes = $conexionDB->execquery($queryClientes);
-
             $clientes = array();
 
             // Obtener los datos de los representantes
@@ -95,6 +94,8 @@
 
                 $result = $conexionDB->execquery($query);
 
+            /* Si se tiene un row entonces muestra la tabla */
+            if (mysqli_num_rows($result) > 0){
                 // Mostrar las reservas
                 echo "<h2>Reservas del cliente $clienteSeleccionado</h2>";
                 echo "<div class='flex-container'>";
@@ -136,6 +137,16 @@
                 echo "</div>";
                 echo "</div>";
                 echo "<br>";
+            //if de rows
+            }else{
+                echo "<br><br><br>";    
+                echo "<h2>El cliente $clienteSeleccionado no ha realizado reservas.</h2>";
+                echo "<form method='post' action='informacionRe.php'>";
+                echo "<input type='submit' value='Regresar a la sección del cliente'>";
+                echo "</form>";
+            }
+
+                
             } else {
                 // Si no se ha enviado el formulario, mostrar el formulario de selección
                 echo "<h1><font face=”Cambria” size=6>Selecciona un cliente:</font></h1>";

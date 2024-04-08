@@ -1,4 +1,5 @@
 <?php
+if(isset($_POST['referencia'])){
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include('../../data/config.php');
 //include('global/conexion.php');
@@ -12,6 +13,8 @@ include('templates/cabeceraIndex.php');
 
 <?php
 //Obtiene form de cabeceraIndex.php de los 3 canales segun lo que 
+
+    
 switch ($_POST['referencia']) {
     case 'canal1':
         $canal = 'UCge3wm7sYHXKRRqRsLySzkw';
@@ -24,6 +27,7 @@ switch ($_POST['referencia']) {
     case 'canal3':
         $canal = 'UCofT7WmjqgMPRRh3UIR3DxA';
         break;
+
 }
 
 //Code to obtain the channel API. Ajusten "results" del link si desean mostrar mas videos.
@@ -33,7 +37,7 @@ echo "<h1>".$array['items'][0]['snippet']['channelTitle']."</h1><br>";
 foreach ($array['items'] as $element) {
     echo "<div class='card' style='width:" . $element['snippet']['thumbnails']['high']['width'] . "px';       >";    
         // if VID or PLAYLIST
-        echo "<div style='width:" . $element['snippet']['thumbnails']['high']['width'] . "px'>";        
+        echo "<div  style='width:" . $element['snippet']['thumbnails']['high']['width'] . "px'; margin: '10px';>";        
         if (array_key_exists('videoId', $element['id'])) {
             echo "<a href='https://www.youtube.com/watch?v=" . $element['id']['videoId'] . "' target='_blank'> <img style= 'text-align: center;' src='" . $element['snippet']['thumbnails']['high']['url'] . "' '> 
                 <br> " . $element['snippet']['title'] . "</a> <br>";
@@ -51,6 +55,10 @@ foreach ($array['items'] as $element) {
         echo "Published date: " . date("d/m/Y", strtotime($element["snippet"]["publishedAt"])) . "<br><br>";
         echo "</div>";
     echo "</div>";
+}    
+}else{
+    header('Location: index.php');
 }
+
 ?>
 <br><?php include('templates/pie.php') ?>
