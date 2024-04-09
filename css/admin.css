@@ -28,7 +28,7 @@ h1{
 /* Barra de navegación */
 nav {
     width: 250px;
-    background-color: #ffcd11; /* Color de fondo */
+    background-color: #f5de22; /* Color de fondo */
 }
 
 nav ul {
@@ -52,7 +52,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #FFD842; /* Color de fondo al pasar el ratón */
+    background-color: #FFEC4D; /* Color de fondo al pasar el ratón */
+    border: 1px solid #0F0F0F; /* Línea separadora */
 }
 
 /* Submenú */
@@ -66,8 +67,9 @@ nav ul ul {
     transition: opacity 0.3s, top 0.3s;
 }
 
+/* SUB MENU COLORES */
 nav ul ul li {
-    background-color: #fbc70e; /* Color del submenú */
+    background-color: #F5DE22; /* Color del submenú */
 }
 
 nav ul ul li a {

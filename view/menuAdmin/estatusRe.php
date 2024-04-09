@@ -78,8 +78,9 @@
 
             $result = $conexionDB->execquery($query);
 
-            // Mostrar las máquinas en el almacén
-            echo "<h2>Estatus de reservas $estatusSeleccionado</h2>";
+            if (mysqli_num_rows($result) > 0){
+                // echo "si tiene";
+                echo "<h2>Estatus de reservas $estatusSeleccionado</h2>";
             echo "<div class='flex-container'>";
             echo "<div class='container' style='margin:0;'>";
             echo "<br><br>";
@@ -103,6 +104,34 @@
 
             echo "</table>";
             echo "</div>";
+            }else{
+                // echo "no tiene";
+                echo "<h2>Estatus de reservas $estatusSeleccionado</h2>";
+            echo "<div class='flex-container'>";
+            echo "<div class='container' style='margin:0;'>";
+            echo "<br><br>";
+            echo "<div class='row'>";
+            echo "<table class='table'>";
+            echo "<tr class='table-dark'>";
+            echo "<td>DescripcionEstatus</td>";
+            echo "<td>NumReserva</td>";
+            echo "<td>Fecha</td>";
+            echo "<td>Cliente</td>";
+            echo "</tr>";
+
+            echo "<tr>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+                echo "<td>N/A</td>";
+            echo "</tr>";
+
+            echo "</table>";
+            echo "</div>";
+            }
+
+            // Mostrar las máquinas en el almacén
+            
 
             // Botón para volver a la selección del almacén
             echo "<form method='post' action='estatusRe.php'>";

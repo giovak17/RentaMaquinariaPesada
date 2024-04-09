@@ -127,43 +127,37 @@ echo "<script>alert('No se encontraron registros para ese almacen.');</script>";
     <div class = "flex-container">
     <div class = "container">
     <form action = "#" method = "post" class = "d-flex">
-    <div class = "container">
-    <input  type="search" placeholder="Buscar Almacen" aria-label="Search" name = "txtBuscar"style = "display: inline;width: 80%;">
-    <button type="submit" name = "btnSubmit" style = "display: inline;width: 15%;">Buscar</button>&ensp;&ensp;
-    </div>
+      <div class = "container">
+        <input  type="search" placeholder="Buscar Almacen" aria-label="Search" name = "txtBuscar"style = "display: inline;width: 80%;">
+        <button type="submit" name = "btnSubmit" style = "display: inline;width: 15%;">Buscar</button>&ensp;&ensp;
+      </div>
     </form>
 
     <strong>Representantes de Renta de <?php $row = mysqli_fetch_assoc($rows); echo $row["Almacen"]?></strong>
-<table class = "table">
-
+    <table class = "table">
       <tr class = "table-dark">
-
         <td>Ciudad</td>
         <td>Almacen</td>
         <td>Direccion</td>
         <td>Vendedor</td>
       </tr>
 
-  <?php 
-  foreach ($rows as $row) {
-  echo "<tr>";
-  echo "<td>".$row['Ciudad']."</td>";
-  echo "<td>".$row['Almacen']."</td>";
-  echo "<td>".$row['Direccion']."</td>";
-  echo "<td>".$row['RepresentanteDeVentas']."</td>";
-  echo "</tr>";
-    # code...
-  }
-  
-  ?>
+      <?php 
+      foreach ($rows as $row) {
+        echo "<tr>";
+          echo "<td>".$row['Ciudad']."</td>";
+          echo "<td>".$row['Almacen']."</td>";
+          echo "<td>".$row['Direccion']."</td>";
+          echo "<td>".$row['RepresentanteDeVentas']."</td>";
+        echo "</tr>";
+      }
+      
+      ?>
 
-</table>
+    </table>
 </div>
 </div>
-
-
-
-    </main>
+</main>
 </body>
 </html>
 

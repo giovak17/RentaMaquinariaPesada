@@ -60,7 +60,7 @@
                  
                     <br>
                     <table border = 2>
-                    <label>Nombre: </label> <input type="text" name="nombre" required >
+                    <label>Nombre: </label> <input type="text" name="nombre" required  pattern="[a-zA-Z]+">
                     <br>
                     <label>Apellido paterno: </label> <input type="text" name="apPat" required >
                     <br>
